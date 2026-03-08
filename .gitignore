@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# IntelliJ IDEA / JetBrains
+.idea/
+*.iml
+
+# Java build artifacts
+*.class
+out/
+build/
+target/
+
+# JavaScript / Node.js artifacts
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
