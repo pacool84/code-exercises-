@@ -1,30 +1,36 @@
 # Mini-Max Sum - Guia de estudio (JavaScript)
 
 ## 1. Objetivo del ejercicio
+
 Entender como obtener la suma minima y la suma maxima a partir de cinco enteros positivos, sumando exactamente cuatro numeros en cada caso.
 
 ## 2. Que debes dominar antes de resolverlo
 
 ### Arreglos en JavaScript
+
 - Trabajar con un arreglo fijo de 5 enteros.
 - Recorrer todos sus elementos.
 - Identificar valores minimo y maximo dentro del arreglo.
 
 ### Sumas acumuladas
+
 - Calcular la suma total de todos los elementos.
 - Entender que si conoces la suma total:
   - suma minima = total - maximo
   - suma maxima = total - minimo
 
 ### Tipos numericos en JavaScript
+
 - En HackerRank para este problema, `Number` suele ser suficiente en JavaScript.
 - Aun asi, conviene entender que en otros lenguajes este reto puede requerir enteros de 64 bits.
 
 ### Impresion en consola
+
 - El problema pide imprimir, no retornar.
 - La salida debe ser una sola linea con dos valores separados por espacio.
 
 ## 3. Traduccion del problema a logica
+
 Dado un arreglo `arr` con cinco enteros:
 
 1. Suma los cinco valores.
@@ -35,13 +41,16 @@ Dado un arreglo `arr` con cinco enteros:
 6. Imprime ambos resultados en una sola linea.
 
 ## 4. Habilidades clave que practicaras
+
 - Analisis de arreglos pequenos.
 - Uso de acumuladores.
 - Deteccion de minimo y maximo.
 - Simplificacion de problemas evitando combinaciones innecesarias.
 
 ## 5. Estrategia de implementacion (sin codigo final)
+
 1. Inicializa variables para:
+
 ```js
 let total = 0;
 let min = arr[0];
@@ -49,26 +58,71 @@ let max = arr[0];
 ```
 
 2. Recorre el arreglo una sola vez.
+
 ```js
 for (const value of arr) {
   // acumular y actualizar min/max
 }
 ```
 
+Esto significa que no necesitas hacer un ciclo para sumar, otro para buscar el minimo y otro para buscar el maximo.
+
+Con un unico recorrido, cada elemento del arreglo se procesa una sola vez. En cada vuelta del `for` haces tres tareas:
+
+- sumar el valor actual a `total`
+- comparar si ese valor es menor que `min`
+- comparar si ese valor es mayor que `max`
+
+La variable `value` representa el numero que estas leyendo en ese momento del arreglo. Por ejemplo, si `arr = [1, 2, 3, 4, 5]`, el ciclo va leyendo `1`, luego `2`, luego `3`, y asi hasta terminar.
+
+La idea importante es esta: cada vez que ves un numero, aprovechas ese mismo momento para actualizar toda la informacion que necesitas. Asi evitas trabajo repetido y la solucion se mantiene simple.
+
 3. Actualiza suma, minimo y maximo durante el recorrido.
+
 ```js
 total += value;
 if (value < min) min = value;
 if (value > max) max = value;
 ```
 
+Linea por linea:
+
+- `total += value;`
+  Va acumulando la suma de todos los elementos.
+- `if (value < min) min = value;`
+  Si el numero actual es mas pequeno que el minimo guardado hasta ahora, entonces el nuevo minimo pasa a ser ese valor.
+- `if (value > max) max = value;`
+  Si el numero actual es mas grande que el maximo guardado hasta ahora, entonces el nuevo maximo pasa a ser ese valor.
+
+Ejemplo rapido con `arr = [1, 2, 3, 4, 5]`:
+
+- Inicio: `total = 0`, `min = 1`, `max = 1`
+- Lee `1`: `total = 1`, `min = 1`, `max = 1`
+- Lee `2`: `total = 3`, `min = 1`, `max = 2`
+- Lee `3`: `total = 6`, `min = 1`, `max = 3`
+- Lee `4`: `total = 10`, `min = 1`, `max = 4`
+- Lee `5`: `total = 15`, `min = 1`, `max = 5`
+
+Al terminar el ciclo ya tienes todo lo necesario:
+
+- la suma total
+- el valor minimo
+- el valor maximo
+
+Por eso despues solo haces las restas finales:
+
+- `minSum = total - max`
+- `maxSum = total - min`
+
 4. Calcula los dos resultados finales.
+
 ```js
 const minSum = total - max;
 const maxSum = total - min;
 ```
 
 5. Imprime ambos en una sola linea.
+
 ```js
 console.log(minSum + " " + maxSum);
 ```
@@ -76,14 +130,17 @@ console.log(minSum + " " + maxSum);
 ## 6. Input y output en HackerRank (Node.js)
 
 ### Entrada esperada
+
 - Una sola linea con cinco enteros separados por espacio.
 
 ### Salida esperada
+
 - Una sola linea con dos enteros separados por espacio:
   - primero la suma minima
   - despues la suma maxima
 
 ### Ejemplo visual
+
 ```text
 Input:
 1 2 3 4 5
@@ -93,10 +150,12 @@ Output:
 ```
 
 ## 7. Complejidad esperada
+
 - Tiempo: `O(n)` con `n = 5`.
 - Espacio extra: `O(1)`.
 
 ## 8. Errores comunes
+
 - Intentar generar todas las combinaciones cuando no hace falta.
 - Imprimir primero la suma maxima y luego la minima.
 - Retornar un valor en vez de imprimir.
@@ -104,6 +163,7 @@ Output:
 - Olvidar que se deben sumar exactamente cuatro de los cinco numeros.
 
 ## 9. Checklist antes de enviar
+
 - [ ] Sume correctamente los 5 valores.
 - [ ] Identifique el minimo y el maximo.
 - [ ] Calcule `minSum = total - max`.
@@ -112,9 +172,11 @@ Output:
 - [ ] Probe con el sample y obtuve `10 14`.
 
 ## 10. Practica recomendada posterior
+
 - Resolver una variante con mas de cinco numeros.
 - Repetir el problema ordenando el arreglo y comparando ambos enfoques.
 - Practicar otro ejercicio donde se pida minimo, maximo y suma total en un solo recorrido.
 
 ---
+
 Documento orientado a aprendizaje. No incluye la solucion final del reto.
