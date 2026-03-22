@@ -56,7 +56,7 @@ En ambas, necesitas recorrer el arreglo con un ciclo. Sin un `for` o `for...of`,
 
 ### Opcion 1: dos recorridos
 
-1. Recorre el arreglo para encontrar el maximo.
+1. Recorre el arreglo para encontrar el maximo, Inicializar esta variable con el primer valor del arreglo
 
 ```js
 let max = candles[0];
