@@ -138,7 +138,7 @@ class Result {
     public static void miniMaxSum(List<Integer> arr) {
     // Write your code here
     long result = 0;
-    long min = arr.get(0)
+    long min = arr.get(0);
     long max = arr.get(0);
 
     for(int actualValue : arr) {
@@ -150,7 +150,7 @@ class Result {
     long minSum = result - max;
     long maxSum = result - min;
 
-    System.out.println(minSum, maxSum);
+    System.out.println(minSum + " " + maxSum);
 
     }
 
