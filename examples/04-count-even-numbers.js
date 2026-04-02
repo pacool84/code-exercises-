@@ -114,7 +114,13 @@ function readLine() {
 function countEvenNumbers(numbers) {
   // TODO: Write your solution here.
   // TODO: Recorre el arreglo y cuenta cuantos numeros son pares.
-  return 0;
+  let evenCount = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      evenCount++;
+    }
+  }
+  return evenCount;
 }
 
 function main() {

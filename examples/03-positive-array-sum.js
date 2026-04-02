@@ -112,7 +112,14 @@ function readLine() {
 function positiveArraySum(numbers) {
   // TODO: Write your solution here.
   // TODO: Recorre el arreglo y suma solo los numeros positivos.
-  return 0;
+  let sumPositiveArray = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 0) {
+      sumPositiveArray += numbers[i];
+    }
+  }
+  return sumPositiveArray;
 }
 
 function main() {

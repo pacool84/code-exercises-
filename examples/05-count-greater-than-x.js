@@ -123,7 +123,14 @@ function readLine() {
 function countGreaterThanX(numbers, x) {
   // TODO: Write your solution here.
   // TODO: Recorre el arreglo y cuenta cuantos numeros son mayores que x.
-  return 0;
+  let greaterThanX = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > x) {
+      greaterThanX++;
+    }
+  }
+  return greaterThanX;
 }
 
 function main() {
